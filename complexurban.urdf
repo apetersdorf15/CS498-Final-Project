@@ -1,0 +1,123 @@
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<robot name="cartographer_complex_urban">
+  <material name="orange">
+    <color rgba="1.0 0.5 0.2 1" />
+  </material>
+  <material name="gray">
+    <color rgba="0.2 0.2 0.2 1" />
+  </material>
+
+  <link name="imu">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.06 0.04 0.02" />
+      </geometry>
+      <material name="orange" />
+    </visual>
+  </link>
+
+  <link name="right_velodyne">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" />
+      <geometry>
+        <cylinder length="0.07" radius="0.05" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+  </link>
+
+  <link name="left_velodyne">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" />
+      <geometry>
+        <cylinder length="0.07" radius="0.05" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+  </link>
+
+  <link name="middle_sick">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" />
+      <geometry>
+        <cylinder length="0.07" radius="0.05" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+  </link>
+
+  <link name="back_sick">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" />
+      <geometry>
+        <cylinder length="0.07" radius="0.05" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+  </link>
+
+  <link name="vrs_gps">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" />
+      <geometry>
+        <cylinder length="0.07" radius="0.05" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+  </link>
+
+  <link name="base_link" />
+
+  <joint name="imu_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="imu" />
+    <origin xyz="0.0 0 0.0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="right_velodyne_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="right_velodyne" />
+    <origin xyz="-0.333596 -0.373928 1.94377" rpy="3.122376579 2.36345506 0.7635064986" />
+  </joint>
+
+  <joint name="left_velodyne_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="left_velodyne" />
+    <origin xyz="-0.334623 0.431973 1.94043" rpy="0.02494895806 0.7766907158 2.3803673" />
+  </joint>
+
+  <joint name="vrs_gps_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="vrs_gps" />
+    <origin xyz="-0.32 0 1.7" rpy="0 0 0" />
+  </joint>
+
+  <joint name="middle_sick_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="middle_sick" />
+    <origin xyz="0.8349 -0.0126869 1.76416" rpy="142.759 0.0584636 89.9254" />
+  </joint>
+
+  <joint name="back_sick_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="back_sick" />
+    <origin xyz="-0.5617 0.0516457 1.61702" rpy="44.7597 -179.022 89.3336" />
+  </joint>
+
+</robot>
